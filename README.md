@@ -25,7 +25,7 @@ pip install -r requirements.txt
 ```
 InstructABSA/
 ├── Demo/         	   # Jupyter notebook and sample data
-├── Docs/         	   # Model outputs and charts
+├── Docs/         	   # Experiments and Model outputs
 ├── scripts/      	   # Our evaluation scripts
 └── requirements.txt   # Dependencies
 ```
@@ -34,13 +34,13 @@ InstructABSA/
 
 | Script | Description |
 |--------|-------------|
-| `scripts/simple_eval.py` | Reproduces ATSC task results on Rest15 dataset |
-| `scripts/Reproduce_ATSC_results.py` | Reproduces ATSC results on all datasets |
-| `scripts/inference.py` | Inference on custom input file |
-| `scripts/Prompt_engineering.py` | Tests 4 and 8 examples in prompt |
-| `scripts/test_flan_t5.py` | Compares Flan-T5 with Tk-Instruct |
-| `scripts/baseline_comparison.py` | Compares with Random and Majority baselines |
-| `scripts/persian_comparison.py` | Cross-lingual test on Persian data |
+| `simple_eval.py` | Reproduces ATSC task results on Rest15 dataset |
+| `Reproduce_ATSC_results.py` | Reproduces ATSC results on all datasets |
+| `inference.py` | Inference on custom input file |
+| `Prompt_engineering.py` | Tests 4 and 8 examples in prompt |
+| `test_flan_t5.py` | Compares Flan-T5 with Tk-Instruct |
+| `baseline_comparison.py` | Compares with Random and Majority baselines |
+| `persian_comparison.py` | Cross-lingual test on Persian data |
 
 ## Usage
 
@@ -76,7 +76,7 @@ python scripts/inference.py --input demo/sample_input.csv --output Output/predic
 
 
 
-## requirements.txt:
+## requirements
 ```
 torch
 transformers

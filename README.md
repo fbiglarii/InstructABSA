@@ -6,7 +6,6 @@ This project reproduces and improves results from the paper "InstructABSA: Instr
 
 ### 1. Clone the repository
 ```bash
-cd C:\Users\YourUsername\Desktop
 git clone https://github.com/kevinscaria/InstructABSA.git
 cd InstructABSA
 ```
@@ -19,21 +18,15 @@ venv\Scripts\activate
 
 ### 3. Install dependencies
 ```bash
-pip install torch torchvision torchaudio
-pip install transformers datasets pandas scikit-learn openpyxl tqdm evaluate accelerate sentencepiece
 pip install -r requirements.txt
 ```
 
 ## Project Structure
 ```
 InstructABSA/
-├── Dataset/           # SemEval datasets
-├── InstructABSA/      # Main model code
-├── Notebooks/         # Jupyter Notebooks for training
-├── Output/            # Model outputs
-├── Scripts/           # Shell scripts
-├── instructions.py    # Instruction definitions
-├── run_model.py       # Main execution script
+├── Demo/         	   # Jupyter notebook and sample data
+├── Docs/         	   # Model outputs and charts
+├── scripts/      	   # Our evaluation scripts
 └── requirements.txt   # Dependencies
 ```
 
@@ -41,14 +34,33 @@ InstructABSA/
 
 | Script | Description |
 |--------|-------------|
-| `simple_eval.py` | Simple model evaluation - reproduces ATSC task results on Rest15 dataset |
-| `Reproduce_ATSC_results.py` | Reproduces ATSC task results on all datasets (Rest14, Rest15, Rest16, Lapt14) |
-| `inference.py` | Inference on custom user input (ATSC task with text + aspect input). Usage: `python inference.py --input sample_input.csv --output results.csv` |
-| `Prompt_engineering.py` | Tests different number of examples (4 and 8) in prompt for ATSC task on Rest15 dataset |
-| `test_flan_t5.py` | Compares Flan-T5 model with Tk-Instruct (InstructABSA) |
-| `baseline_comparison.py` | Compares model output with Random and Majority baselines |
-| `persian_comparison.py` | Evaluates model performance on Persian language (cross-lingual test) |
+| `scripts/simple_eval.py` | Reproduces ATSC task results on Rest15 dataset |
+| `scripts/Reproduce_ATSC_results.py` | Reproduces ATSC results on all datasets |
+| `scripts/inference.py` | Inference on custom input file |
+| `scripts/Prompt_engineering.py` | Tests 4 and 8 examples in prompt |
+| `scripts/test_flan_t5.py` | Compares Flan-T5 with Tk-Instruct |
+| `scripts/baseline_comparison.py` | Compares with Random and Majority baselines |
+| `scripts/persian_comparison.py` | Cross-lingual test on Persian data |
 
+## Usage
+
+### Run evaluation
+```bash
+python scripts/simple_eval.py
+```
+
+### Run inference on custom data
+```bash
+python scripts/inference.py --input demo/sample_input.csv --output Output/predictions.csv
+```
+
+## Results
+
+| Experiment | Accuracy |
+|------------|----------|
+| Paper (baseline) | 84.50% |
+| Ours (4 examples) | 85.98% (+1.48%) |
+| Flan-T5 (zero-shot) | 84.69% |
 
 ## References
 
@@ -62,3 +74,14 @@ InstructABSA/
 - RAM: 8GB+
 - OS: Windows 10/11
 
+
+
+## requirements.txt:
+```
+torch
+transformers
+pandas
+tqdm
+matplotlib
+sentencepiece
+```
